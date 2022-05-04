@@ -1,6 +1,7 @@
 
 module "local_route_to_vpn" {
-  source     = "../../route"
+  //source     = "../../route"
+  source     = "git::git@github.com:oneqw/yandex_modules.git//network/route"
   vpc_id     = var.local_vpc_id
   route-name = var.local_route_name
   dst-prefix = var.local_dst_prefix
@@ -9,7 +10,8 @@ module "local_route_to_vpn" {
 }
 
 module "remote_route_to_vpn" {
-  source     = "../../route"
+  //source     = "../../route"
+  source     = "git::git@github.com:oneqw/yandex_modules.git//network/route"
   vpc_id     = var.remote_vpc_id
   route-name = var.remote_route_name
   dst-prefix = var.remote_dst_prefix
@@ -18,7 +20,8 @@ module "remote_route_to_vpn" {
 }
 
 module "local_vpn_vm" {
-  source          = "../vpn_vm"
+  //source          = "../vpn_vm"
+  source          = "git::git@github.com:oneqw/yandex_modules.git//network/vpn/vpn_vm"
   init_file_name  = var.local_init_file_name
   public_key_path = var.public_key_path
   //local_ext_ip_address  = var.local_ext_ip_address
@@ -38,7 +41,8 @@ module "local_vpn_vm" {
 
 
 module "remote_vpn_vm" {
-  source          = "../vpn_vm"
+  //source          = "../vpn_vm"
+  source          = "git::git@github.com:oneqw/yandex_modules.git//network/vpn/vpn_vm"
   init_file_name  = var.remote_init_file_name
   public_key_path = var.public_key_path
   //local_ext_ip_address  = var.remote_ext_ip_address
